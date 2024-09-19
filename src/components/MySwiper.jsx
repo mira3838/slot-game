@@ -11,30 +11,18 @@ import "swiper/css/scrollbar";
 
 export default () => {
   return (
-    <>
-      <Swiper
-        // install Swiper modules
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation={true}
-        pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
-        style={{ height: "300px" }}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-      </Swiper>
-    </>
+    <Swiper
+      className="sample-slider"
+      modules={[Autoplay]}
+      loop={true}
+      autoplay={{ delay: 0 }}
+      slidesPerView={3} // 追記
+      speed={3000} // 追記
+    >
+      <SwiperSlide>1</SwiperSlide>
+      <SwiperSlide>2</SwiperSlide>
+      <SwiperSlide>3</SwiperSlide>
+      <SwiperSlide>4</SwiperSlide>
+    </Swiper>
   );
 };

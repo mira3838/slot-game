@@ -1,26 +1,28 @@
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import styles from "@/components/Slides.module.css";
 
 const data = ["Slide 1", "Slide 2", "Slide 3", "Slide 4"];
 
-export function Slides() {
+export function Slides(props) {
   return (
     <Swiper
       direction="vertical"
       modules={[Autoplay]}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-      style={{ height: "200px" }}
+      //style={{ height: "200px", width: "300px" }}
+      speed={200}
       autoplay={{
-        delay: 100,
-        disableOnInteraction: false,
+        delay: 0,
+        reverseDirection: true,
       }}
       loop={true}
+      allowTouchMove={false}
+      className={`slides ${styles.slides}`}
     >
-      {data.map((d) => (
+      {props.data.map((d) => (
         <SwiperSlide key={d}>
-          <div style={{ background: "grey", height: "200px" }}>{d}</div>
+          <div style={{ background: "grey", height: "100%" }}>{d}</div>
         </SwiperSlide>
       ))}
     </Swiper>

@@ -2,6 +2,12 @@ import MySwiper from "@/components/MySwiper";
 import { Slides } from "@/components/Slides";
 import Head from "next/head";
 
+const ITEMS = [
+  ["hoge", "huga", "piyo"],
+  ["foo", "bar"],
+  ["test", "exam", "problem", "confirm"],
+];
+
 export default function Home() {
   return (
     <>
@@ -12,10 +18,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Slides />
-      </div>
-      <div>
-        <MySwiper />
+        {ITEMS.map((item, i) => {
+          return <Slides key={i} data={item} />;
+        })}
       </div>
     </>
   );
