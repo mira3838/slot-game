@@ -1,6 +1,32 @@
-.slides {
-  height: 100px;
-  width: 200px;
+.slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiperContainer {
+  height: 70px;
+  width: 250px;
   border: 1px solid black;
   margin: 10px;
+}
+
+.slideWrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  font-family: arial;
+  font-size: 30px;
+}
+
+.button {
+  height: 40px;
+  width: 80px;
+  font-size: 15px;
+  background-color: beige;
+  border: 0cap;
+  border-radius: 20px;
 }
