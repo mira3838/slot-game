@@ -1,0 +1,20 @@
+.slotContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  height: 60px;
+  width: 300px;
+  font-size: 30px;
+  background-color: beige;
+  border: 2px solid rgb(32, 32, 5);
+  border-radius: 20px;
+}

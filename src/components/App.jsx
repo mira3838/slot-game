@@ -1,16 +1,15 @@
-import { Slides } from "@/components/Slides";
 import { useCallback, useState } from "react";
-import styles from "@/components/Main.module.css";
+import styles from "@/components/App.module.css";
+import { Slot } from "./Slot";
 import Link from "next/link";
 
 const ITEMS = [
-  ["HAPPY", "WORST", "SUPER", "WASTE of"],
-  ["BIRTHDAY", "NEW YEAR", "LIFE", "TUESDAY"],
-  ["dear", "GOD of", "死ね", "さよなら"],
-  ["おっくん", "ざわ", "しおみん", "みはちゃん"],
+  ["/images/aaa.png", "/images/bbb.png"],
+  ["/images/aaa.png", "/images/bbb.png"],
+  ["/images/aaa.png", "/images/bbb.png"],
 ];
 
-export function Main() {
+export function App() {
   const [array, setArray] = useState(ITEMS.map(() => true));
   const [text, setText] = useState("");
   const [slideIndex, setSlideIndex] = useState([ITEMS.map(() => -1)]);
@@ -24,9 +23,20 @@ export function Main() {
         newArray[index] = false;
         return newArray;
       });
-      console.log(slideIndex, "hoge");
       swiperInstances[index].autoplay.stop();
+      if (index === ITEMS.length - 1) {
+        const result = ITEMS.every((item, i) => {
+          return item[slideIndex[i]] === ITEMS[0][slideIndex[0]];
+        });
+        setText(() => {
+          if (!result) {
+            return "失敗！";
+          }
+          return "クリア！";
+        });
+      }
     } else {
+      setText("");
       setArray((prevArray) => {
         const newArray = [...prevArray];
         return newArray.fill(true);
@@ -51,10 +61,11 @@ export function Main() {
 
   return (
     <main>
+      <h1 className={styles.h1}>{text}</h1>
       <div className={styles.slotContainer}>
         {ITEMS.map((item, i) => {
           return (
-            <Slides
+            <Slot
               key={i}
               index={i}
               data={item}
@@ -68,8 +79,8 @@ export function Main() {
         <button onClick={slotPlay} className={styles.button}>
           クリック
         </button>
-        <Link href="/slot">
-          <span>slot</span>
+        <Link href="/">
+          <span>birthday</span>
         </Link>
       </div>
     </main>

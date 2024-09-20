@@ -1,0 +1,25 @@
+.h1 {
+  height: 40px;
+  text-align: center;
+}
+
+.slotContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button {
+  height: 60px;
+  width: 300px;
+  font-size: 30px;
+  background-color: rgb(255, 223, 223);
+  border: 2px solid rgb(53, 4, 4);
+  border-radius: 20px;
+}
