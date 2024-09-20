@@ -7,14 +7,13 @@ import Image from "next/image";
 export function Slot(props) {
   return (
     <Swiper
-      direction="vertical"
       onSlideChange={(swiper) => props.onSlideChange(swiper, props.index)}
       onSwiper={(swiper) => props.onSwiperInit(swiper)}
       modules={[Autoplay]}
-      speed={1000}
+      speed={300}
       autoplay={{
         delay: 0,
-        reverseDirection: true,
+        reverseDirection: props.reverse,
       }}
       loop={true}
       allowTouchMove={false}
@@ -22,7 +21,7 @@ export function Slot(props) {
     >
       {props.data.map((d, i) => (
         <SwiperSlide key={i}>
-          <Image src={d} width={120} height={120} priority={true} alt="slot" />
+          <Image src={d} fill sizes="50vw" priority={true} alt="slot" />
         </SwiperSlide>
       ))}
     </Swiper>

@@ -1,7 +1,14 @@
 import { App } from "@/components/App";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(()=>{
+    document.body.style.backgroundColor="beige"
+    return ()=>{
+      document.body.style.backgroundColor=""
+    }
+  },[])
   return (
     <>
       <Head>

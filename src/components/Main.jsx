@@ -24,7 +24,6 @@ export function Main() {
         newArray[index] = false;
         return newArray;
       });
-      console.log(slideIndex, "hoge");
       swiperInstances[index].autoplay.stop();
     } else {
       setArray((prevArray) => {

@@ -61,13 +61,14 @@ export function App() {
 
   return (
     <main>
-      <h1 className={styles.h1}>{text}</h1>
+      {/* <h1 className={styles.h1}>{text}</h1> */}
       <div className={styles.slotContainer}>
         {ITEMS.map((item, i) => {
           return (
             <Slot
               key={i}
               index={i}
+              reverse={i % 2 === 0}
               data={item}
               onSwiperInit={addSwiperInstance}
               onSlideChange={handleSlideChange}
