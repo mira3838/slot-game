@@ -4,9 +4,30 @@ import { Slot } from "./Slot";
 import Link from "next/link";
 
 const ITEMS = [
-  ["/images/aaa.png", "/images/bbb.png"],
-  ["/images/aaa.png", "/images/bbb.png"],
-  ["/images/aaa.png", "/images/bbb.png"],
+  [
+    "/images/oku-a1.png",
+    "/images/oku-b1.png",
+    "/images/zawa-a1.png",
+    "/images/zawa-b1.png",
+    "/images/sio1.png",
+    "/images/miha1.png",
+  ],
+  [
+    "/images/oku-a2.png",
+    "/images/oku-b2.png",
+    "/images/zawa-a2.png",
+    "/images/zawa-b2.png",
+    "/images/sio2.png",
+    "/images/miha2.png",
+  ],
+  [
+    "/images/oku-a3.png",
+    "/images/oku-b3.png",
+    "/images/zawa-a3.png",
+    "/images/zawa-b3.png",
+    "/images/sio3.png",
+    "/images/miha3.png",
+  ],
 ];
 
 export function App() {
@@ -70,6 +91,7 @@ export function App() {
               index={i}
               reverse={i % 2 === 0}
               data={item}
+              speed={400 - i * 50}
               onSwiperInit={addSwiperInstance}
               onSlideChange={handleSlideChange}
             />
@@ -81,7 +103,7 @@ export function App() {
           クリック
         </button>
         <Link href="/">
-          <span>birthday</span>
+          <span>もどる</span>
         </Link>
       </div>
     </main>

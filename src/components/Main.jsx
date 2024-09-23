@@ -68,7 +68,7 @@ export function Main() {
           クリック
         </button>
         <Link href="/slot">
-          <span>slot</span>
+          <span>おまけ</span>
         </Link>
       </div>
     </main>

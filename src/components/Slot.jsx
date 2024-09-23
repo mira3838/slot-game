@@ -10,7 +10,7 @@ export function Slot(props) {
       onSlideChange={(swiper) => props.onSlideChange(swiper, props.index)}
       onSwiper={(swiper) => props.onSwiperInit(swiper)}
       modules={[Autoplay]}
-      speed={300}
+      speed={props.speed}
       autoplay={{
         delay: 0,
         reverseDirection: props.reverse,
