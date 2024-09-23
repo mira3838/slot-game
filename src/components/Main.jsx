@@ -67,9 +67,9 @@ export function Main() {
         <button onClick={slotPlay} className={styles.button}>
           クリック
         </button>
-        <Link href="/slot">
+        {/* <Link href="/slot">
           <span>おまけ</span>
-        </Link>
+        </Link> */}
       </div>
     </main>
   );
