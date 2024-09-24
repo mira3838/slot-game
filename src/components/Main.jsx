@@ -12,7 +12,7 @@ const ITEMS = [
 
 export function Main() {
   const [array, setArray] = useState(ITEMS.map(() => true));
-  const [text, setText] = useState("");
+  const [speed, setSpeed] = useState(100);
   const [slideIndex, setSlideIndex] = useState([ITEMS.map(() => -1)]);
   const [swiperInstances, setSwiperInstances] = useState([]);
 
@@ -48,6 +48,14 @@ export function Main() {
     });
   };
 
+  const handleSpeed = useCallback(
+    (accel) => {
+      if ((accel > 0 && speed < 300) || (accel < 0 && speed > 50)) {
+        setSpeed((prev) => prev + accel);
+      }
+    },
+    [speed]
+  );
   return (
     <main>
       <div className={styles.slotContainer}>
@@ -59,6 +67,7 @@ export function Main() {
               data={item}
               onSwiperInit={addSwiperInstance}
               onSlideChange={handleSlideChange}
+              speed={speed}
             />
           );
         })}
@@ -67,9 +76,22 @@ export function Main() {
         <button onClick={slotPlay} className={styles.button}>
           クリック
         </button>
-        {/* <Link href="/slot">
-          <span>おまけ</span>
-        </Link> */}
+        <button
+          className={`${styles.button} ${styles.speed}`}
+          onClick={() => {
+            handleSpeed(-10);
+          }}
+        >
+          スピードアップ
+        </button>
+        <button
+          className={`${styles.button} ${styles.speed}`}
+          onClick={() => {
+            handleSpeed(10);
+          }}
+        >
+          スピードダウン
+        </button>
       </div>
     </main>
   );
